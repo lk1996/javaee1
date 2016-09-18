@@ -12,18 +12,18 @@ public class server {
 		 try{
 			 
 			 server=new ServerSocket(3333);
-			 //´´½¨ServerSocketÔÚ¶Ë¿Ú3333¼àÌı¿Í»§ÇëÇó
+			 //åˆ›å»ºServerSocketåœ¨ç«¯å£3333ç›‘å¬å®¢æˆ·è¯·æ±‚
 			 
 		 }catch(Exception e){
 			 System.out.println("can not listen to:"+e);
-			 //³ö´í£¬´òÓ¡´íÎóĞÅÏ¢
+			 //å‡ºé”™ï¼Œæ‰“å°é”™è¯¯ä¿¡æ¯
 		 }
 	Socket sok=null;
     while(true){
       try{
 		   System.out.println("start");
 			sok=server.accept();
-			//Ê¹ÓÃaccept()×èÈûµÈ´ı¿Í»§ÇëÇó£¬ÓĞ¿Í»§ÇëÇóµ½À´ÔòÉú³ÉÒ»¸öSocket¶ÔÏó£¬²¢¼ÌĞøÖ´ĞĞ
+			//ä½¿ç”¨accept()é˜»å¡ç­‰å¾…å®¢æˆ·è¯·æ±‚ï¼Œæœ‰å®¢æˆ·è¯·æ±‚åˆ°æ¥åˆ™ç”Ÿæˆä¸€ä¸ªSocketå¯¹è±¡ï¼Œå¹¶ç»§ç»­æ‰§è¡Œ
 			if(sok!=null){
 				threadC threa=new threadC(sok);
 			    threa.start();
@@ -38,7 +38,7 @@ public class server {
 	 
  }catch(Exception e){
 	 System.out.println("Error"+e);
-	 //³ö´í£¬´òÓ¡´íÎóĞÅÏ¢
+	 //å‡ºé”™ï¼Œæ‰“å°é”™è¯¯ä¿¡æ¯
  }
  }
 
@@ -58,10 +58,10 @@ class threadC extends Thread{
 		try{
 			 String line;
 			 BufferedReader is =new BufferedReader(new InputStreamReader(socket.getInputStream()));
-			 //ÓÉSocket¶ÔÏóµÃµ½ÊäÈëÁ÷£¬²¢¹¹ÔìÏàÓ¦µÄBufferedReader¶ÔÏó
+			 //ç”±Socketå¯¹è±¡å¾—åˆ°è¾“å…¥æµï¼Œå¹¶æ„é€ ç›¸åº”çš„BufferedReaderå¯¹è±¡
 			 
 			 PrintWriter os=new PrintWriter(socket.getOutputStream());
-			 //ÓÉSocket¶ÔÏóµÃµ½Êä³öÁ÷£¬²¢¹¹ÔìPrintWriter¶ÔÏó
+			 //ç”±Socketå¯¹è±¡å¾—åˆ°è¾“å‡ºæµï¼Œå¹¶æ„é€ PrintWriterå¯¹è±¡
 			
 			 line=is.readLine();
 			 String linef="";
@@ -75,8 +75,8 @@ class threadC extends Thread{
 			 os.flush();
 				
 			 
-			 os.close();//¹Ø±ÕSocketÊä³öÁ÷
-			 is.close();//¹Ø±ÕSocketÊäÈëÁ÷
+			 os.close();//å…³é—­Socketè¾“å‡ºæµ
+			 is.close();//å…³é—­Socketè¾“å…¥æµ
 				
 		}catch(IOException e){
 					
